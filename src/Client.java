@@ -39,7 +39,7 @@ class SendThread implements Runnable{
 	}
 	
 	private void sendBigFile(String filename){
-		String urlPath = "http://10.12.13.11:8989/uploads";
+		String urlPath = "http://10.12.13.11:7878/1/2/3/4";
 		try{
 			URL url = new URL(urlPath);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -84,6 +84,7 @@ class SendThread implements Runnable{
 			outStream.flush();
 			outStream.close();
 			int responseCode = conn.getResponseCode();
+			System.out.println("responseCode" + responseCode);
 			if (responseCode != 200) {
 				throw new RuntimeException("请求url失败");
 			}
@@ -95,7 +96,6 @@ class SendThread implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 	}
 }
 
